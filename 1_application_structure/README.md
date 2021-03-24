@@ -1,4 +1,4 @@
-# Exercises Section 3 - Getting Started
+# Getting Started
 
 ### Activity 1. 
 
