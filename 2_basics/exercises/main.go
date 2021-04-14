@@ -102,4 +102,15 @@ func main() {
 	fmt.Println(int(hour) != minute)
 	fmt.Println(hour != duration(minute))
 
+	type mile float64
+	type kilometer float64
+
+	const m2km = 1.609
+	var (
+		mileBerlinToParis mile = 655.3
+		kmBerlinToParis   kilometer
+	)
+
+	kmBerlinToParis = kilometer(mileBerlinToParis * m2km)
+	fmt.Printf("Distance in Km from Berlin to Paris is %f\n", kmBerlinToParis)
 }
