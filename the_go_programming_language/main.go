@@ -8,4 +8,10 @@ import (
 
 func main() {
 	fmt.Printf("%v\n", tempconv.BoilingC)
+	fmt.Printf("%g\n", tempconv.BoilingC-tempconv.FreezingC)
+
+	boilingF := tempconv.CToF(tempconv.BoilingC)
+	fmt.Printf("%g\n", boilingF-tempconv.CToF(tempconv.FreezingC))
+
+	fmt.Printf("%s", tempconv.FreezingC)
 }
