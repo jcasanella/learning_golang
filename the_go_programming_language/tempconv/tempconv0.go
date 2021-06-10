@@ -46,5 +46,5 @@ func (f Farenheit) String() string {
 }
 
 func (k Kelvin) String() string {
-	return fmt.Sprintf("%g F", k)
+	return fmt.Sprintf("%g K", k)
 }
