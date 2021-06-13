@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"learning_golang/the_go_programming_language/stdinconv"
 	"learning_golang/the_go_programming_language/tempconv"
 
 )
@@ -16,4 +17,7 @@ func main() {
 		fmt.Printf("%d K is %s\n", value, tempconv.KToF(tempconv.Kelvin(value)))
 		fmt.Printf("%d K is %s\n", value, tempconv.KToC(tempconv.Kelvin(value)))
 	}
+
+	resFah := stdinconv.CToF()
+	fmt.Printf("%s\n", resFah)
 }
