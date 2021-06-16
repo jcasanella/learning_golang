@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func main() {
+	// Exercise 1
+
 	// 1. Using the var keyword, declare an array called cities with 2 elements of type string. Don't initialize the array
 	// Print out the cities array and notice the value of its elements
 	var cities [2]string
@@ -25,4 +27,20 @@ func main() {
 	for _, value := range taskDone {
 		fmt.Printf("%t ", value)
 	}
+
+	// Excercise 2
+
+	fmt.Println()
+
+	// Consider the following array declaration: nums := [...]int{30, -1, -6, 90, -6}
+	// Write a Go program that counts the number of positive even numbers in the array.
+	nums := [...]int{30, -1, -6, 90, -6}
+	total := 0
+	for _, value := range nums {
+		if value%2 == 0 && value > 0 {
+			total++
+		}
+	}
+
+	fmt.Printf("Total: %d\n", total)
 }
