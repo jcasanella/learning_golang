@@ -90,4 +90,29 @@ func main() {
 
 	s1 = append(s1[:4], 200)
 	fmt.Println(s1)
+
+	// A slice expression doesnt create a new backing array. The original and returned are connected
+	slice1 := []int{10, 20, 30, 40, 50}
+	slice3, slice4 := slice1[0:2], slice1[1:3] // slice3,slice4 share the same backing array slice1
+	slice3[1] = 600                            // modifying backing array slice1, slice3, slice4 are in fact modified
+	fmt.Println(slice1)                        // 10, 600, 30, 40, 50
+	fmt.Println(slice3)                        // 10 600
+	fmt.Println(slice4)                        // 600 30
+
+	// When a slice is created by slicing an array, that array becomes the backing array of the new slice
+	arr1 := [4]int{10, 20, 30, 40}
+	sl1, sl2 := arr1[0:2], arr1[1:3]
+	arr1[1] = 500
+	fmt.Println(arr1) // 10 500 30 40
+	fmt.Println(sl1)  // 10 500
+	fmt.Println(sl2)  // 500 30
+
+	// Append creates a new slice from an existing slice
+	cars := []string{"Ford", "Audi", "Range Rover"}
+	newCars := []string{}
+
+	// newCars doesn't share the same backing array with cars
+	newCars = append(newCars, cars[0:2]...)
+	cars[0] = "Lotus"
+	fmt.Println("cars: ", cars, "newCars: ", newCars)
 }
