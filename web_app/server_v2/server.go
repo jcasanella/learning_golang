@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	// go get -u github.com/gorilla/mux
 	r := mux.NewRouter()
 	r.HandleFunc("/books/{title}/page/{page}", func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
