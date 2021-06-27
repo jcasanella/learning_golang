@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+
+)
 
 func main() {
 	// Exercise 1.
@@ -31,4 +37,33 @@ func main() {
 	// Exercise 3
 	// Create a Go program that reads some numbers from the command line and then calculates the sum and the product of all the numbers given at command line.
 	// The user should give between 2 and 10 numbers.
+	numbers := make([]int, 0)
+	scanner := bufio.NewScanner(os.Stdin)
+
+	fmt.Println("You must enter between  2 and 10 numbers")
+	for {
+		// var num int
+		scanner.Scan()
+		text := scanner.Text()
+		if len(text) == 0 {
+			fmt.Println("No data entered")
+			if len(numbers) > 1 {
+				break
+			}
+		} else {
+			num, err := strconv.Atoi(text)
+			if err != nil {
+				fmt.Println("Error captured")
+				fmt.Println(err)
+			} else {
+				numbers = append(numbers, num)
+				fmt.Println("Number entered:", num)
+				if len(numbers) == 10 {
+					break
+				}
+			}
+		}
+	}
+
+	fmt.Println(numbers)
 }
